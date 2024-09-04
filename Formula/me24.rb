@@ -3,7 +3,7 @@ class Me24 < Formula
   desc "MicroEmacs 24 Text Editor"
   homepage "https://github.com/bjasspa/jasspa"
   version "20240901"
-  PREFIX="https://github.com/bjasspa/jasspa/releases/download/me_20240901/Jasspa_MicroEmacs_20240901_abin_"
+  PREFIX "https://github.com/bjasspa/jasspa/releases/download/me_20240901/Jasspa_MicroEmacs_20240901_abin_"
   if OS.mac?
       if Hardware::CPU.arm?
           # Code for Apple Silicon (M1, M2, etc.)
