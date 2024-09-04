@@ -1,5 +1,5 @@
 
-class Me09 < Formula
+class Me24 < Formula
   desc "MicroEmacs 24 Text Editor"
   homepage "https://github.com/bjasspa/jasspa"
   version "20240901"
