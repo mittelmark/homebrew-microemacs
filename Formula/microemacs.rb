@@ -15,7 +15,7 @@ class Microemacs < Formula
     target_dir = "#{ENV['HOME']}/.config/jasspa"
     # Create the target directory if it doesn't exist
     mkdir_p target_dir unless File.exist?(target_dir)
-    cp_r "macros/me.ehf", target_dir
+    cp "macros/me.ehf", target_dir
   end
 
 end
