@@ -10,7 +10,7 @@ class Microemacs < Formula
 
   def install
     # Define the target directory
-    target_dir = "#{ENV['HOME']}/.config/jasspa"
+    target_dir = = Pathname.new(Dir.home) + ".config/jasspa"
     mkdir_p target_dir unless File.exist?(target_dir)
     print(target_dir)
     system "curl -L -o help_ehf.zip https://github.com/bjasspa/jasspa/releases/download/me_20240902/Jasspa_MicroEmacs_20240902_help_ehf.zip"
