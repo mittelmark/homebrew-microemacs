@@ -17,10 +17,10 @@ class Microemacs < Formula
     system "unzip -o help_ehf.zip -d #{buildpath}"
 
     # Install the license and README files
-    cp "COPYING.txt", target_dir 
-    cp "readme.txt", target_dir 
+    cp "#{buildpath}/COPYING.txt", target_dir 
+    cp "#{buildpath}/readme.txt", target_dir 
     # Install help file
-    cp "macros/me.ehf", target_dir
+    cp "#{buildpath}/macros/me.ehf", target_dir
     # Clean up the downloaded ZIP file
     rm_f "help_ehf.zip"    # Create the target directory if it doesn't exist
   end
