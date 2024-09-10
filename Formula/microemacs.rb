@@ -11,8 +11,7 @@ class Microemacs < Formula
   sha256 "CC95587293B33B0805906D1143CF473F419325F493E146C695C6325A45D56D27"
 
   def install
-      
-  # Define the target directory
+    # Define the target directory
     target_dir = "#{ENV['HOME']}/.config/jasspa"
     mkdir_p target_dir unless File.exist?(target_dir)
     system "curl -L -o help_ehf.zip #{url}"
