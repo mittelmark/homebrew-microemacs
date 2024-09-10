@@ -12,7 +12,7 @@ class Microemacs < Formula
     # Define the target directory
     target_dir = "#{ENV['HOME']}/.config/jasspa"
     mkdir_p target_dir unless File.exist?(target_dir)
-    system "curl -L -o help_ehf.zip #{url}"
+    system "curl -L -o help_ehf.zip https://github.com/bjasspa/jasspa/releases/download/me_20240902/Jasspa_MicroEmacs_20240902_help_ehf.zip"
     # Unzip the downloaded file
     system "unzip -o help_ehf.zip -d #{buildpath}"
 
