@@ -8,17 +8,17 @@ class MicroemacsMew < Formula
   if OS.mac?
       if Hardware::CPU.arm?
           # Code for Apple Silicon (M1, M2, etc.)
-          url "#{PREFIX}macos_apple_mecs.zip"
+          url "#{PREFIX}macos_apple_mews.zip"
           sha256 "40F2329E81E8F768D150FC9C22858DA49DEFF7AD35AE878A5424CFAEAA94F0C2"
       elsif Hardware::CPU.intel?
-          url "#{PREFIX}macos_intel_mecs.zip"
+          url "#{PREFIX}macos_intel_mews.zip"
           sha256 "CF272913DF93D139A3F3391BDD493D74C856F3B1BBD46D2552D8010365789761"
       end
   elsif OS.linux?
-      url "#{PREFIX}linux_mecs.zip"
+      url "#{PREFIX}linux_mews.zip"
     sha256 "00CB8B47023BFE9BD27326B2E52614FD006F8A3408089613FEE8CE68DF6536B8"
   elsif OS.windows?
-      url "#{PREFIX}windows_mecs.zip"
+      url "#{PREFIX}windows_mews.zip"
     sha256 "041376D26F0D9D651F69AB63CBB199B8F2BD8455405F7F52AAC4952597BA6920"
   end
 
