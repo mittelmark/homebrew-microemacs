@@ -35,6 +35,6 @@ class MicroemacsMec < Formula
   end
 
   test do
-    assert_match "MicroEmacs 24 - Date 2024/09/01 - linux", shell_output("#{bin}/mecs -V")
+    assert_match "MicroEmacs 24 - Date 2024/09/02 - linux", shell_output("#{bin}/mecs -V")
   end
 end
