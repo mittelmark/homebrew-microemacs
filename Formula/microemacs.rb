@@ -10,20 +10,13 @@ class Microemacs < Formula
 
   def install
     # Define the target directory
-    target_dir = Pathname.new(Dir.home) + ".config/jasspa"
-    mkdir_p target_dir unless File.exist?(target_dir)
-    print(target_dir)
-    system "curl -L -o help_ehf.zip https://github.com/bjasspa/jasspa/releases/download/me_20240902/Jasspa_MicroEmacs_20240902_help_ehf.zip"
-    # Unzip the downloaded file
-    system "unzip -o help_ehf.zip -d #{buildpath}"
-
+    (share/"jasspa").mkpath
     # Install the license and README files
-    cp "#{buildpath}/COPYING.txt", target_dir 
-    cp "#{buildpath}/readme.txt", target_dir 
+    cp "COPYING.txt", share/"jasspa"
+    cp "readme.txt", share/"jasspa"
     # Install help file
-    cp "#{buildpath}/macros/me.ehf", target_dir
+    cp "macros/me.ehf", share/"jasspa"
     # Clean up the downloaded ZIP file
-    rm_f "help_ehf.zip"    
   end
 
 end
