@@ -25,6 +25,6 @@ class Me09 < Formula
   end
 
   test do
-    assert_match "MicroEmacs 09 - Date 2009/12/#{version}", shell_output("#{bin}/mec -V")
+    assert_match "MicroEmacs 09 - Date 2009/12/#{OSV}", shell_output("#{bin}/mecs -V")
   end
 end
