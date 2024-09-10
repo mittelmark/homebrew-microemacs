@@ -6,7 +6,7 @@ class Microemacs < Formula
   depends_on "microemacs-mec"
   depends_on "microemacs-mew"  
   PREFIX="https://github.com/bjasspa/jasspa/releases/download/me_#{version}/Jasspa_MicroEmacs_#{version}"
-  EHF="#{PREFIX}_help.zip"
+  EHF="#{PREFIX}_help_ehf.zip"
   url "#{EHF}"
   sha256 "CC95587293B33B0805906D1143CF473F419325F493E146C695C6325A45D56D27"
 
