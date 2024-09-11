@@ -1,17 +1,16 @@
-
+#!/usr/bin/env ruby
 class MicroemacsMecs < Formula
-  desc "MicroEmacs 24 Text Editor Terminal Version"
+  desc "MicroEmacs 24 Text Editor Standalone Terminal Version"
   homepage "https://github.com/bjasspa/jasspa"
   version "20240902"
   PREFIX="https://github.com/bjasspa/jasspa/releases/download/me_#{version}/Jasspa_MicroEmacs_#{version}_abin_"
-  FILE="Jasspa_MicroEmacs_20240902_abin_"
   depends_on "luit"
   depends_on "abduco"
   if OS.mac?
       if Hardware::CPU.arm?
           # Code for Apple Silicon (M1, M2, etc.)
           url "#{PREFIX}macos_apple_mecs.zip"
-          sha256 "40F2329E81E8F768D150FC9C22858DA49DEFF7AD35AE878A5424CFAEAA94F0C2"
+          sha256 "38CA966B71BC3EA6B274A9D5A64C5E3BA1EA8175FC644560059FCD69A323A041"
       elsif Hardware::CPU.intel?
           url "#{PREFIX}macos_intel_mecs.zip"
           sha256 "D58A17332C5CE464BAD7CE20200CDCF0FDFC74AFA99D236207C2B10917699F92"

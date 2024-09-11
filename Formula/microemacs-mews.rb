@@ -1,4 +1,4 @@
-
+#!/usr/bin/env ruby
 class MicroemacsMews < Formula
   desc "MicroEmacs 24 Text Editor GUI Version"
   homepage "https://github.com/bjasspa/jasspa"
@@ -43,7 +43,7 @@ class MicroemacsMews < Formula
       <<~EOS  
          On MacOS:
          Before you can open the X-Window version please 
-         open X11 with this command:
+         open X11 with this command in a terminal:
          open -a XQuartz
       EOS
   end

@@ -20,7 +20,7 @@ class MicroemacsMew < Formula
           sha256 "0F08317178A134F9D4ED4FE0C144233411CAB2E7228EC4ACB61EB31DF67E3D34"
       elsif Hardware::CPU.intel?
           url "#{PREFIX}macos_intel_binaries.zip"
-          sha256 "C6582CDF9160242C4F8C1B87C526DC791F428D3D4622C92381932965F56B93D3"
+          sha256 "0F08317178A134F9D4ED4FE0C144233411CAB2E7228EC4ACB61EB31DF67E3D34"
       end
   elsif OS.linux?
       url "#{PREFIX}linux_binaries.zip"
