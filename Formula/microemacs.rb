@@ -1,22 +1,57 @@
 
 class Microemacs < Formula
-  desc "MicroEmacs 24 Text Editor"
+  desc "MicroEmacs 24 Text Editor GUI Version"
   homepage "https://github.com/bjasspa/jasspa"
-  url "https://github.com/bjasspa/jasspa/releases/download/me_20240902/Jasspa_MicroEmacs_20240902_help_ehf.zip"
-  sha256 "CC95587293B33B0805906D1143CF473F419325F493E146C695C6325A45D56D27"
-  version "20240902"
+  version "20240903"
+  PREFIX="https://github.com/bjasspa/jasspa/releases/download/me_#{version}/Jasspa_MicroEmacs_#{version}_bin_"
+  on_macos do
+    depends_on "xquartz"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxaw"
+    depends_on "libxt"
+  end  
   depends_on "microemacs-mec"
-  depends_on "microemacs-mew"  
-
-  def install
-    # Define the target directory
-    (share/"jasspa").mkpath
-    # Install the license and README files
-    cp "COPYING.txt", share/"jasspa"
-    cp "readme.txt", share/"jasspa"
-    # Install help file
-    cp "macros/me.ehf", share/"jasspa"
-    # Clean up the downloaded ZIP file
+  depends_on "microemacs-help"
+  depends_on "microemacs-macros"  
+  if OS.mac?
+      if Hardware::CPU.arm?
+          # Code for Apple Silicon (M1, M2, etc.)
+          url "#{PREFIX}macos_apple_binaries.zip"
+          sha256 "840E128556F9D772FCF88CBFFACA1A026C05041FD6B168C6ACF9DDA9B8259D3D"
+      elsif Hardware::CPU.intel?
+          url "#{PREFIX}macos_intel_binaries.zip"
+          sha256 "840E128556F9D772FCF88CBFFACA1A026C05041FD6B168C6ACF9DDA9B8259D3D"
+      end
+  elsif OS.linux?
+      url "#{PREFIX}linux_binaries.zip"
+    sha256 "22F436BE7E400BF56AAE3DC714494ED98413F243E02AED59DDB227F6BA424196"
+  elsif OS.windows?
+      url "#{PREFIX}windows_binaries.zip"
+    sha256 "486C9CB70A79D4B82501482A389D0B68BBB9765767C0D91DD54B6B8E4998371D"
   end
 
+  def install
+      if OS.linux?
+          bin.install "bin/linux5-intel64/mew"
+      elsif OS.mac? && Hardware::CPU.arm?
+          bin.install "bin/macos14-apple64/mew"
+      elsif OS.mac? && Hardware::CPU.intel?
+          bin.install "bin/macos14-intel64/mew"
+      elsif OS.windows?
+          bin.install "bin/windows100-intel32/mew.exe"
+      end
+      puts "start Microemacs with: MEPATH=~/.config/jasspa:${share}/jasspa/macros:${share}/jasspa/spelling mew"      
+  end
+  
+  def caveats 
+      <<~EOS
+        This application is better working if you install tools like
+        xfontscale to select X11 TrueType fonts
+      EOS
+  end
+  
+  test do
+    assert_match "MicroEmacs 24 - Date 2024/09/02 - linux", shell_output("#{bin}/mew -V")
+  end
 end
